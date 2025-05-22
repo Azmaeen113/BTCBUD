@@ -7,7 +7,7 @@ import BitcoinLogo from './BitcoinLogo';
 
 const Hero = () => {
   const { toast } = useToast();
-  const contractAddress = "0x123456789abcdef123456789abcdef123456789";
+  const contractAddress = "BtcFA4n32dCuBvpnco11SNFEoJyCGGC6r6sgemFWMZFQ";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(contractAddress);
@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero-gradient min-h-screen w-full px-4 overflow-hidden pt-24">
+    <section className="hero-gradient min-h-screen w-full px-4 overflow-hidden pt-28 md:pt-24">
       <div className="container mx-auto py-8 md:py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 md:space-y-6 text-center lg:text-left">
@@ -71,11 +71,18 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start pt-4">
-              <Button className="bg-btcbud-yellow hover:bg-btcbud-yellow/90 text-btcbud-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl btn-pulse flex items-center gap-2">
+              <Button
+                className="bg-btcbud-yellow hover:bg-btcbud-yellow/90 text-btcbud-black font-bold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl btn-pulse flex items-center gap-2"
+                onClick={() => window.open('https://pump.fun/coin/BtcFA4n32dCuBvpnco11SNFEoJyCGGC6r6sgemFWMZFQ', '_blank')}
+              >
                 <LineChart size={20} className="md:w-6 md:h-6" />
                 Buy on Pump.fun
               </Button>
-              <Button variant="outline" className="border-2 border-btcbud-green text-btcbud-green hover:bg-btcbud-green hover:text-white font-bold text-base md:text-lg px-4 md:px-6 py-4 md:py-6 rounded-xl flex items-center gap-2">
+              <Button
+                variant="outline"
+                className="border-2 border-btcbud-green text-btcbud-green hover:bg-btcbud-green hover:text-white font-bold text-base md:text-lg px-4 md:px-6 py-4 md:py-6 rounded-xl flex items-center gap-2"
+                onClick={() => window.open('https://dexscreener.com/solana/BtcFA4n32dCuBvpnco11SNFEoJyCGGC6r6sgemFWMZFQ', '_blank')}
+              >
                 <CandlestickChart size={20} className="md:w-6 md:h-6" />
                 View Chart
               </Button>

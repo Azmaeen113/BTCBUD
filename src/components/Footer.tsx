@@ -15,7 +15,7 @@ const Footer = () => {
             </h3>
             <p className="mb-4">Join the ultimate crypto community where friendship and profits go hand in hand.</p>
             <div className="flex gap-4 mt-6">
-              <a href="#" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2" aria-label="X">
+              <a href="https://x.com/i/communities/1925650218185269751/" target="_blank" rel="noopener noreferrer" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2" aria-label="X">
                 <X size={24} />
                 <span className="text-sm">X</span>
               </a>
@@ -26,13 +26,13 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4">Trading Platforms</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2">
+                <a href="https://pump.fun/coin/BtcFA4n32dCuBvpnco11SNFEoJyCGGC6r6sgemFWMZFQ" target="_blank" rel="noopener noreferrer" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2">
                   <LineChart size={20} />
                   <span>Buy on Pump.fun</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2">
+                <a href="https://dexscreener.com/solana/BtcFA4n32dCuBvpnco11SNFEoJyCGGC6r6sgemFWMZFQ" target="_blank" rel="noopener noreferrer" className="hover:text-btcbud-yellow transition-colors flex items-center gap-2">
                   <CandlestickChart size={20} />
                   <span>Chart on DexScreener</span>
                 </a>
