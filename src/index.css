@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 70% 98%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 60 30% 96%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 60 30% 92%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  body {
+    @apply text-btcbud-black font-body;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient {
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(10, 10, 10, 0.7) 25%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(10, 10, 10, 0.7) 75%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: 0;
+}
+
+.hero-gradient > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Image placeholder animation */
+.image-placeholder {
+  background: linear-gradient(90deg, #FFFAF0 25%, #FFF8E1 50%, #FFFAF0 75%);
+  background-size: 200% 100%;
+  animation: placeholderShimmer 2s infinite;
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Floating animation for accent elements */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* LED Strip Running Border Animation */
+@keyframes led-strip {
+  0% {
+    background-position: -200% 0;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    background-position: 200% 0;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* Bitcoin Logo Card Styles */
+.bitcoin-logo-card {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1/1;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  border-radius: 0.75rem;
+}
+
+.bitcoin-logo-card:hover {
+  transform: scale(1.02) translateY(-5px);
+}
+
+.bitcoin-logo-card:active {
+  transform: scale(0.98);
+}
+
+.bitcoin-logo-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ffff00, #ffff00, transparent, #ffff00);
+  border-radius: 0.75rem;
+  z-index: -1;
+  animation: sparkle-border 3s linear infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.bitcoin-logo-card:hover::before {
+  opacity: 1;
+  animation: sparkle-border 1.5s linear infinite;
+}
+
+@keyframes sparkle-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bitcoin-logo-click {
+  animation: bitcoin-logo-click 0.5s ease;
+}
+
+@keyframes bitcoin-logo-click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.glow-effect {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-effect-hover {
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+  100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+}
+
+.sparkle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sparkle-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle-animation linear infinite;
+  box-shadow: 0 0 4px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes sparkle-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) translateY(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateY(-20px);
+  }
+}
+
+.bitcoin-symbol {
+  animation: float-gentle 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.bitcoin-logo-card:hover .bitcoin-symbol {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+  animation: float-gentle-hover 4s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes float-gentle-hover {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(3deg); }
+  50% { transform: translateY(-7px) rotate(-2deg); }
+  75% { transform: translateY(-4px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Sparkling moving line effect */
+.sparkling-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sparkling-line::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    rgba(255, 255, 0, 0.9)
+  );
+  animation: rotate-sparkle 4s linear infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  filter: blur(1px) drop-shadow(0 0 2px rgba(255, 255, 0, 0.8));
+}
+
+.bitcoin-logo-card:hover .sparkling-line::before {
+  opacity: 1;
+  animation-duration: 2s;
+  filter: blur(0.5px) drop-shadow(0 0 3px rgba(255, 255, 0, 0.9));
+}
+
+.sparkling-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: transparent;
+  border: 2px solid transparent;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+@keyframes rotate-sparkle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sparkling-line-click::before {
+  animation-duration: 0.5s !important;
+  opacity: 1 !important;
+  filter: blur(0px) drop-shadow(0 0 5px rgba(255, 255, 0, 1)) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 430px) {
+  body {
+    min-height: 932px;
+    width: 430px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-gradient {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .bitcoin-logo-card {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 431px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,50 @@
+/* Custom Bitcoin Cursor with Bitcoin Symbol Particles */
+
+/* Default cursor for the entire site */
+html, body, * {
+  cursor: url('/bitcoin (2).png') 12 12, auto !important;
+}
+
+/* Interactive elements cursor */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+select,
+[role="button"],
+.interactive,
+.btn,
+.clickable,
+div[role="button"],
+[tabindex="0"],
+label[for],
+.cursor-pointer {
+  cursor: url('/bitcoin (2).png') 12 12, pointer !important;
+}
+
+/* Gold glow effect for interactive elements */
+@keyframes gold-glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  }
+}
+
+/* Apply the gold glow animation to interactive elements on hover */
+a:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+[role="button"]:hover,
+.interactive:hover,
+.btn:hover,
+.clickable:hover {
+  animation: gold-glow 2s infinite;
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
