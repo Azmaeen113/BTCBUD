@@ -1,20 +1,7 @@
 import React from 'react';
-import { X, Copy, CandlestickChart, LineChart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { X, CandlestickChart, LineChart } from "lucide-react";
 
 const Footer = () => {
-  const { toast } = useToast();
-  const contractAddress = "0x123456789abcdef123456789abcdef123456789";
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(contractAddress);
-    toast({
-      title: "Contract address copied!",
-      description: "The contract address has been copied to your clipboard.",
-      duration: 3000,
-    });
-  };
 
   return (
     <footer className="bg-btcbud-black text-white py-12 px-4">
@@ -51,21 +38,6 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-
-            <div className="mt-6">
-              <h4 className="text-lg font-bold mb-2">Contract Address</h4>
-              <div className="flex items-center gap-2 bg-btcbud-black/60 p-2 rounded border border-btcbud-yellow/30">
-                <div className="text-sm text-gray-400 truncate">{contractAddress}</div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={copyToClipboard}
-                  className="h-8 w-8 p-0 text-btcbud-yellow hover:text-white hover:bg-btcbud-yellow/20"
-                >
-                  <Copy size={16} />
-                </Button>
-              </div>
-            </div>
           </div>
 
           <div>
